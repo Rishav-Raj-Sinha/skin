@@ -38,12 +38,17 @@ def predict_skin_disease(image):
     except Exception as e:
         st.write(f"Error during prediction: {e}")
 
+col1, col2 = st.columns(2)
+
 # Example usage:
-image = st.file_uploader("upload your image")
+with col1:
+    image = st.file_uploader("upload your image")
 if image is not None:
     try:
             image_pil = Image.open(image).convert("RGB")
-            st.image(image_pil, caption="Uploaded Image", use_column_width=True)
-            predict_skin_disease(image_pil)
+            with col1:
+                st.image(image_pil, caption="Uploaded Image", use_column_width=True)
+            with col2:
+                predict_skin_disease(image_pil)
     except Exception as e:
             st.write(f"Error loading image: {e}")
