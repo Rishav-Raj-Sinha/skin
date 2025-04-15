@@ -41,4 +41,9 @@ def predict_skin_disease(image):
 # Example usage:
 image = st.file_uploader("upload your image")
 if image is not None:
-    predict_skin_disease("image")
+    try:
+            image_pil = Image.open(image).convert("RGB")
+            st.image(image_pil, caption="Uploaded Image", use_column_width=True)
+            predict_skin_disease(image_pil)
+        except Exception as e:
+            st.write(f"Error loading image: {e}")
