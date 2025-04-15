@@ -21,11 +21,10 @@ class_names = [
     'seborrheic keratosis', 'squamous cell carcinoma', 'vascular lesion'
 ]
 
-def predict_skin_disease(image_path):
+def predict_skin_disease(image):
     """Predict skin disease from an image file path."""
     try:
         # Load and preprocess image
-        image = Image.open(image_path).convert("RGB")
         encoding = image_processor(image, return_tensors="pt")
 
         # Make prediction
