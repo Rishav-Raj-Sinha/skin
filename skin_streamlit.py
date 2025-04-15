@@ -40,6 +40,6 @@ def predict_skin_disease(image_path):
         st.write(f"Error during prediction: {e}")
 
 # Example usage:
-image = st.fileuploader("upload your image")
+image = st.file_uploader("upload your image")
 if image is not None:
     predict_skin_disease("image")
