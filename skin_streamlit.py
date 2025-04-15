@@ -45,5 +45,5 @@ if image is not None:
             image_pil = Image.open(image).convert("RGB")
             st.image(image_pil, caption="Uploaded Image", use_column_width=True)
             predict_skin_disease(image_pil)
-        except Exception as e:
+    except Exception as e:
             st.write(f"Error loading image: {e}")
